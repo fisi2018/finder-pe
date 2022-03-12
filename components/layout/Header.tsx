@@ -32,7 +32,7 @@ export default function Header(){
                         </Link>
                     </li>
                     <li className="py-8">
-                        <Link href="/" >
+                        <Link href="/about" >
                         <a className=" transition-all duration-300 hover:tracking-widest" >Acerca de Finder</a>
                         </Link>
                     </li>
@@ -58,17 +58,17 @@ export default function Header(){
                 <ul className="hidden xl:flex 2xl:text-2xl" >
                     <li className="mx-4" >
                         <Link href="/" >
-                        <a className={`hover:text-purple-500 duration-300 transition-all hover:font-bold ${pathname.split("/").pop()===""&&"text-purple-500 font-bold"}`} >Inicio</a>
+                        <a className={`hover:text-purple-500 relative duration-300 transition-all hover:font-bold ${pathname.split("/").pop()===""?"text-purple-500 font-bold after:flex after:text-purple-500 after:absolute after:top-full after:justify-center after:items-center after:text-2xl after:w-full after:h-4 after:content-['·'] ":"after:hidden"}`} >Inicio</a>
+                        </Link>
+                    </li>
+                    <li className="mx-4" >
+                        <Link href="/about" >
+                        <a className={`hover:text-purple-500 relative duration-300 transition-all hover:font-bold ${pathname.split("/").pop()==="about"?"text-purple-500 font-bold after:flex after:text-purple-500 after:absolute after:top-full after:justify-center after:items-center after:text-2xl after:w-full after:h-4 after:content-['·'] ":"after:hidden"}`} >Acerca de Finder</a>
                         </Link>
                     </li>
                     <li className="mx-4" >
                         <Link href="/" >
-                        <a className="hover:text-purple-500 duration-300 transition-all hover:font-bold" >Acerca de Finder</a>
-                        </Link>
-                    </li>
-                    <li className="mx-4" >
-                        <Link href="/" >
-                        <a className="hover:text-purple-500 duration-300 transition-all hover:font-bold" >Servicios</a>
+                        <a className={`hover:text-purple-500 relative duration-300 transition-all hover:font-bold ${pathname.split("/").pop()==="services"?"text-purple-500 font-bold after:flex after:text-purple-500 after:absolute after:top-full after:justify-center after:items-center after:text-2xl after:w-full after:h-4 after:content-['·'] ":"after:hidden"}`} >Servicios</a>
                         </Link>
                     </li>
                 </ul>
