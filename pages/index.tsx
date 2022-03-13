@@ -3,11 +3,8 @@ import Layout from "../components/layout";
 //import {BsSearch} from "react-icons/bs";
 import {IoIosArrowDown} from "react-icons/io";
 import Link from "next/link";
-//import algoliasearch from 'algoliasearch/lite';
-//import { InstantSearch } from 'react-instantsearch-hooks';
 import SearchBox from "../components/common/SearchBox";
 import { db } from "../consts/db";
-//const searchClient = algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76');
 export default function Home(){
     return(
         <section className="p-4 flex justify-center flex-col text-white items-center min-h-screen bg-gradient-to-br from-purple-900 to-purple-400  " >
@@ -23,7 +20,7 @@ export default function Home(){
             </article>
             <article className="flex flex-col items-center" >
                 <p className="text-xl 2xl:text-2xl my-4 text-center" >¿Deseas agregar una nueva dirección?</p>
-                <Link href="/" >
+                <Link href="/login" >
                     <a className="py-3 px-6 2xl:py-4 2xl:px-8 2xl:text-xl rounded-2xl uppercase tracking-widest border-2 border-white text-white font-bold hover:bg-white transition-all duration-300 hover:text-purple-500" >
                         Comenzar
                     </a>

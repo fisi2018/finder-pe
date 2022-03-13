@@ -37,19 +37,19 @@ export default function Header(){
                         </Link>
                     </li>
                     <li className="py-8">
-                        <Link href="/" >
+                        <Link href="/services" >
                         <a className=" transition-all duration-300 hover:tracking-widest" >Servicios</a>
                         </Link>
                     </li>
                     <li className="py-8" >
-                        <Link href="/" >
+                        <Link href="/login" >
                             <a className="border-2 font-bold rounded-lg transition-all duration-300 text-sm border-white py-3 px-6 hover:bg-white uppercase hover:text-purple-500" >
                                 Iniciar sesión
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" >
+                        <Link href="/register" >
                             <a className=" bg-gray-700 rounded-lg font-bold text-white py-3 px-6 uppercase text-sm " >Registrarse</a>
                         </Link>
                     </li>
@@ -67,21 +67,21 @@ export default function Header(){
                         </Link>
                     </li>
                     <li className="mx-4" >
-                        <Link href="/" >
+                        <Link href="/services" >
                         <a className={`hover:text-purple-500 relative duration-300 transition-all hover:font-bold ${pathname.split("/").pop()==="services"?"text-purple-500 font-bold after:flex after:text-purple-500 after:absolute after:top-full after:justify-center after:items-center after:text-2xl after:w-full after:h-4 after:content-['·'] ":"after:hidden"}`} >Servicios</a>
                         </Link>
                     </li>
                 </ul>
                 <nav className="hidden xl:flex  " >
                     <article className="mx-4 ">
-                        <Link href="/" >
+                        <Link href="/login" >
                             <a className="border-2  font-bold rounded-lg transition-all duration-300 text-xs text-purple-500 2xl:text-lg border-purple-500 py-3 px-6 hover:bg-purple-500 uppercase hover:text-white" >
                                 Iniciar sesión
                             </a>
                         </Link>
                     </article>
                     <article className="mx-4" >
-                        <Link href="/" >
+                        <Link href="/register" >
                             <a className=" bg-gray-700 rounded-lg font-bold text-white py-3 px-6 uppercase text-xs 2xl:text-lg " >Registrarse</a>
                         </Link>
                     </article>
