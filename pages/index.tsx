@@ -1,8 +1,13 @@
 import { ReactElement } from "react";
 import Layout from "../components/layout";
-import {BsSearch} from "react-icons/bs";
+//import {BsSearch} from "react-icons/bs";
 import {IoIosArrowDown} from "react-icons/io";
 import Link from "next/link";
+//import algoliasearch from 'algoliasearch/lite';
+//import { InstantSearch } from 'react-instantsearch-hooks';
+import SearchBox from "../components/common/SearchBox";
+import { db } from "../consts/db";
+//const searchClient = algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76');
 export default function Home(){
     return(
         <section className="p-4 flex justify-center flex-col text-white items-center min-h-screen bg-gradient-to-br from-purple-900 to-purple-400  " >
@@ -10,17 +15,7 @@ export default function Home(){
             <h1 className="text-3xl md:text-4xl 2xl:text-7xl 2xl:w-96 lg:text-5xl lg:w-60 w-48 font-semibold text-center" >
                 Encuentra cualquier lugar en 1 minuto
             </h1>
-            <form className="my-4 w-full sm:w-96 2xl:w-[40rem] lg:w-[28rem] " >
-                <article className="relative " >
-                    <input className=" w-full 2xl:text-2xl rounded-3xl 2xl:rounded-full 2xl:p-8  p-4 z-0 text-gray-800"  type="search" placeholder="Ej: Vidrieria San Carlos" />
-                    <span className="flex text-2xl 2xl:text-4xl top-4 right-4 2xl:top-7 2xl:right-6 bg-white text-gray-700 absolute justify-center items-center" >
-                        <BsSearch />
-                    </span>
-                </article>
-                <article className="flex justify-center py-6" >
-                    <button className="bg-gray-800 hover:-translate-y-2 hover:opacity-95 hover:shadow-xl py-3 px-6 2xl:py-4 2xl:px-8 2xl:text-xl  text-sm font-semibold uppercase flex justify-center  rounded-2xl transition-all duration-500 tracking-widest hover:bg-white hover:text-purple-500" type="submit" >Buscar</button>
-                </article>
-            </form>
+            <SearchBox db={db} />    
             <article className="flex justify-center" >
                 <span className="flex text-3xl animate-bounce justify-center items-center" >
                     <IoIosArrowDown/>
