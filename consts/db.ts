@@ -41,4 +41,14 @@ export const db:Address[]=[{
     description:"Supermercado con productos muy baratos, ventas al mayor",
     address:"Jr Huanuco 945 cerca del parque de la medicina peruana",
     location:"https://goo.gl/maps/aog3Mv6K2W1tH5jm6"
+},{
+    title:"Notaria Espino",
+    description:"En el 2do piso, oficina pequeña, 620 por constitución de empresa con el SID SUNARP hasta S/.5000.00 de capital inicial incluye inscripción en el RUC",
+    address:"Jirón Apurimac 337, Cercado",
+    location:"https://goo.gl/maps/Qm3JXLEwWeznc8qW6"
+},{
+    title:"Notaria Barreda",
+    description:"Oficina un poco más grande, buen trato al cliente, precio de constitución de empresa S/.550.00 por SID SUNARP, hasta S/.5000",
+    address:"Jirón Lampa 879, Cercado",
+    location:"https://goo.gl/maps/vEddRpgxEou8Dj8p9"
 }]
