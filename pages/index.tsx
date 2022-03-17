@@ -20,7 +20,7 @@ export default function Home(){
             </article>
             <article className="flex flex-col items-center" >
                 <p className="text-xl 2xl:text-2xl my-4 text-center" >¿Deseas agregar una nueva dirección?</p>
-                <Link href="/login" >
+                <Link href="/create-public-card" >
                     <a className="py-3 px-6 2xl:py-4 2xl:px-8 2xl:text-xl rounded-2xl uppercase tracking-widest border-2 border-white text-white font-bold hover:bg-white transition-all duration-300 hover:text-purple-500" >
                         Comenzar
                     </a>

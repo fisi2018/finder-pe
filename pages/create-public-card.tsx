@@ -1,11 +1,11 @@
 import Layout from "../components/layout";
 import { BiCurrentLocation } from "react-icons/bi"
 import { ReactElement} from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { MdEmail, MdPassword } from "react-icons/md";
+import { MdDescription, MdEmail, MdLocationOn, MdPassword, MdTitle } from "react-icons/md";
 import Link from "next/link";
 import { FormTypeCreateCard, HandlerSubmit } from "../types/formTypes";
 import { useForm } from "../components/hooks/useForm";
+import { FaAddressBook } from "react-icons/fa";
 const formInit:FormTypeCreateCard ={
     title:"",
     description:"",
@@ -27,28 +27,34 @@ export default function PublicCard():JSX.Element{
                     <BiCurrentLocation/>
                 </span>
                 </article>
-                <article className="my-4 flex " >
-                    <span className="flex 2xl:text-3xl  text-2xl mr-2 text-gray-400 items-end justify-center" >
-                        <AiOutlineUser/>
+                <article className="my-4 flex flex-row-reverse " >
+                    <input className=" peer 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " placeholder="Título" type="text" />
+                    <span className="flex transition-all duration-300 peer-focus:text-white 2xl:text-3xl  text-2xl mr-2 text-gray-400 items-end justify-center" >
+                        <MdTitle/>
                     </span>
-                    <input className=" 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " placeholder="Título" type="text" />
                 </article>
-                <article className="my-4 flex " >
-                    <span className="flex 2xl:text-3xl  text-2xl mr-2 text-gray-400 items-end justify-center" >
-                        <MdEmail/>
+                <article className="my-4 flex items-start  flex-row-reverse " >
+                    <textarea  placeholder="Ingrese una descripción o detalles a considerar del lugar" className="peer resize-none 2xl:text-xl bg-transparent p-2 rounded-lg border-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " name="" id="" cols={30} rows={10}></textarea>
+                    <span className="transition-all duration-300 peer-focus:text-white flex 2xl:text-3xl  text-2xl mr-2 text-gray-400 items-end justify-center" >
+                        <MdDescription/>
                     </span>
-                    <input className=" 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " placeholder="Descripción" type="text" />
                 </article>
-                <article className="my-4 flex " >
-                    <span className="flex 2xl:text-3xl justify-center items-end text-gray-400 text-2xl mr-2 " >
-                        <MdPassword/>
+                <article className="my-4 flex flex-row-reverse " >
+                    <input className="peer 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300 outline-0 border-gray-400 flex-1" placeholder="Dirección" type="text" />
+                    <span className="flex transition-all duration-300 peer-focus:text-white 2xl:text-3xl justify-center items-end text-gray-400 text-2xl mr-2 " >
+                        <FaAddressBook/>
                     </span>
-                    <input className=" 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300 outline-0 border-gray-400 flex-1" placeholder="Dirección" type="text" />
                 </article>
-                <button className="bg-purple-700 mt-2 transition-all duration-300 hover:bg-purple-600 2xl:text-xl text-white py-2" type="submit" >Registrarse</button>
+                <article className="my-4 flex flex-row-reverse" >
+                    <input className="peer 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300 outline-0 border-gray-400 flex-1" placeholder="URL de google maps" type="text" />
+                    <span className="flex transition-all duration-300 peer-focus:text-white 2xl:text-3xl justify-center items-end text-gray-400 text-2xl mr-2 " >
+                        <MdLocationOn/>
+                    </span>
+                </article>
+                <button className="bg-purple-700 mt-2 transition-all duration-300 hover:bg-purple-600 2xl:text-xl text-white py-2" type="submit" >Publicar dirección</button>
                 <Link href="/login">
                 <a className="text-sm 2xl:text-lg mt-4 text-purple-300 " >
-                    ¿Ya posees una cuenta? Inicia sesión aquí
+                    ¿Quieres disfrutar de más funcionalidades? Inicia sesión aquí
                 </a>
                 </Link>
                 
