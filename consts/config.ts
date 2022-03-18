@@ -1,0 +1,1 @@
+export const ACCESS_TOKEN_MAPBOX:string=process.env.ACCESS_TOKEN_MAPBOX

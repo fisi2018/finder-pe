@@ -12,6 +12,7 @@ export const useForm=(init:FormTypeCreateCard)=>{
     }
     return{
         handleChange,
+        setForm,
         form
     }
 }

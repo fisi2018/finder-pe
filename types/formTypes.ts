@@ -7,4 +7,4 @@ export type FormTypeCreateCard={
     location:string
 }
 export type HandlerSubmit=(e:FormEvent<HTMLFormElement>)=>void
-export type HandlerChange=(e:ChangeEvent<HTMLInputElement>)=>void
+export type HandlerChange=(e:ChangeEvent<HTMLInputElement>|ChangeEvent<HTMLTextAreaElement>)=>void
