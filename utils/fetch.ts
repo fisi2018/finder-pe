@@ -19,6 +19,7 @@ export const createPlace=async(form:Place)=>{
     try{
         const response=await axios.post(`${API_URL}/place/createPlace`,form);
         const data=await response.data;
+        if(data.error) return{error:data.error,message:data.message}
         return data;
     }catch(err){
         return{
