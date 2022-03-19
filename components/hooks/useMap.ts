@@ -24,13 +24,14 @@ export const useMap=()=>{
         );
         setMaps(map);
         map.once("click",(e)=>handlerMarker(e,map));
+        return ()=>map.remove()
         },[]);
         function handlerMarker(e:MapMouseEvent,map:Map){
             if(markers){
                 markers.remove();
             }
             const marker = new mapboxgl.Marker({
-                color: "#FFFFFF"
+                color: "#A855F7"
                 
             }).setLngLat([e.lngLat.lng,e.lngLat.lat])
             .addTo(map);

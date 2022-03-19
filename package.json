@@ -15,10 +15,12 @@
   "dependencies": {
     "@types/mapbox-gl": "^2.6.3",
     "algoliasearch": "^4.12.2",
+    "axios": "^0.26.1",
     "mapbox-gl": "^2.7.0",
     "next": "^12.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1"
   },
   "devDependencies": {

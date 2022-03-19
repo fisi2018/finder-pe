@@ -4,8 +4,14 @@ import Layout from "../components/layout";
 import {IoIosArrowDown} from "react-icons/io";
 import Link from "next/link";
 import SearchBox from "../components/common/SearchBox";
-import { db } from "../consts/db";
-export default function Home(){
+import { GetStaticProps } from "next";
+import { fetchPlaces } from "../utils/fetch";
+import { Place } from "../types/place";
+type HomeProps={
+    db:Place[],
+    message:string
+}
+export default function Home({db,message}:HomeProps){
     return(
         <section className="p-4 flex justify-center flex-col text-white items-center min-h-screen bg-gradient-to-br from-purple-900 to-purple-400  " >
             <p className="uppercase tracking-widest 2xl:text-xl " >Uso gratuito</p>
@@ -35,4 +41,19 @@ Home.getLayout=function getLayout(page:ReactElement){
             {page}
         </Layout>
     )
+}
+export const getStaticProps:GetStaticProps=async()=>{
+    const places=await fetchPlaces();
+    if(places.error){
+        return{
+            props:{
+                message:places.message
+            }
+        }
+    }
+    return{
+        props:{
+            db:places
+        }
+    }
 }

@@ -6,7 +6,10 @@ export default function MapBox({setForm,form}):JSX.Element{
        
        useEffect(()=>{
             if(markers){
-                setForm({...form,location:`${markers._lngLat.lng},${markers._lngLat.lat}`})
+                setForm({...form,location:{
+                    lng:markers._lngLat.lng,
+                    lat:markers._lngLat.lat
+                }})
                 maps.once("click",(e)=>handlerMarker(e,maps));
             } 
         },[markers])

@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import { Place } from '../../types/place';
 import { useSearch } from '../hooks/useSearch';
-export default function SearchBox({db}){
+import MapPlace from './MapPlace';
+export default function SearchBox({db}:{db:Place[]}){
     const {handleChange,handleSubmit,items,searchValue}=useSearch(db);
-    
+    const [show,setShow]=useState<{}>({});
+    const handleMap=(id:string)=>{
+        show[id]?setShow({...show,[id]:false}):setShow({...show,[id]:true});
+    }
     return(
        <form  onSubmit={handleSubmit} className="my-4 w-full  flex flex-col items-center   " >
                 <article className="relative sm:w-80 w-full lg:w-96 xl:w-[28rem] 2xl:w-[60rem] " >
@@ -16,7 +22,7 @@ export default function SearchBox({db}){
                 </article>
                 <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row md:gap-4 2xl:gap-6  ' >
                     {items.list.length!==0 && items.list.map((el,i)=>(
-                        <div className='bg-white text-gray-800 flex flex-col justify-between my-2 rounded-lg p-4 2xl:p-6' key={i} >
+                        <div className='bg-white text-gray-800 flex flex-col justify-between my-2 rounded-lg p-4 2xl:p-6' key={el._id} >
                             {(i===3 && !items.showAll) ?
                             <>
                             <p className='text-5xl 2xl:text-6xl text-center' >+3</p>
@@ -27,7 +33,11 @@ export default function SearchBox({db}){
                             <p className='font-bold 2xl:text-2xl' >{el.title}</p>
                             <p className='2xl:my-2 my-1 2xl:text-xl' >{el.description}</p>
                             <p className='my-1 font-light text-purple-700 2xl:my-2 2xl:text-xl' >{el.address}</p>
-                            <a target="_blank" className='bg-purple-500 text-white flex justify-center items-center py-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg hover:opacity-90' href={el.location} >Ver ubicación</a>
+                            {show[el._id] ?
+                                <MapPlace id={el._id} lng={el.location.lng} lat={el.location.lat} />
+                            :
+                            <button onClick={()=>handleMap(el._id)} className='bg-purple-500 text-white flex justify-center items-center py-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg hover:opacity-90' >Ver ubicación</button>
+                            }
                             </>
                             }
                         </div>

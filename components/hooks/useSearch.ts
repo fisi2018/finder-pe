@@ -1,16 +1,16 @@
-import {Address} from "../../consts/db";
 import {useState,useEffect,ChangeEvent,FormEvent} from "react";
 import { changeTildeFormat } from "../../utils";
-export const useSearch=(db:Address[])=>{
+import { Place } from "../../types/place";
+export const useSearch=(db:Place[])=>{
     const [searchValue,setSearchValue]=useState<string>("");
-    const [items,setItems]=useState<{list:Address[],showAll:boolean}>({
+    const [items,setItems]=useState<{list:Place[],showAll:boolean}>({
         list:[],
         showAll:false
     });
     useEffect(()=>{
         if(searchValue!==""){
             let flag:number=0;
-            let array:Address[]=[];
+            let array:Place[]=[];
             for(let i:number=0;i<db.length;i++){
                 if(flag===4){
                     break;
@@ -35,7 +35,7 @@ export const useSearch=(db:Address[])=>{
     const handleSubmit=(e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
     if(searchValue!=="" && searchValue.length>=3 ){
-            let array:Address[]=db.filter((el:Address)=>{
+            let array:Place[]=db.filter((el:Place)=>{
                 if(el.title.toLowerCase().includes(searchValue) 
                 || changeTildeFormat(el.title.toLowerCase()).includes(changeTildeFormat(searchValue))
                 || el.description.toLowerCase().includes(searchValue)
