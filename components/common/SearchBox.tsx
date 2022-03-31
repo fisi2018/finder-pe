@@ -20,7 +20,7 @@ export default function SearchBox({db}:{db:Place[]}){
                 <article className="flex justify-center py-6" >
                     <button className="bg-gray-800 hover:-translate-y-2 hover:opacity-95 hover:shadow-xl py-3 px-6 2xl:py-4 2xl:px-8 2xl:text-xl  text-sm font-semibold uppercase flex justify-center  rounded-2xl transition-all duration-500 tracking-widest hover:bg-white hover:text-purple-500" type="submit" >Buscar</button>
                 </article>
-                <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row md:gap-4 2xl:gap-6  ' >
+                <div className='flex flex-col place-items-start md:grid md:grid-cols-3 md:grid-flow-row md:gap-4 2xl:gap-6  ' >
                     {items.list.length!==0 && items.list.map((el,i)=>(
                         <div className='bg-white text-gray-800 flex flex-col justify-between my-2 rounded-lg p-4 2xl:p-6' key={el._id} >
                             {(i===3 && !items.showAll) ?
