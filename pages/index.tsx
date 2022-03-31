@@ -48,12 +48,14 @@ export const getStaticProps:GetStaticProps=async()=>{
         return{
             props:{
                 message:places.message
-            }
+            },
+            revalidate:10
         }
     }
     return{
         props:{
             db:places
-        }
+        },
+        revalidate:10
     }
 }
