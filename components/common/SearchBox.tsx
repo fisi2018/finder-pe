@@ -22,7 +22,7 @@ export default function SearchBox({db}:{db:Place[]}){
                 </article>
                 <div className='flex flex-col place-items-start md:grid md:grid-cols-3 md:grid-flow-row md:gap-4 2xl:gap-6  ' >
                     {items.list.length!==0 && items.list.map((el,i)=>(
-                        <div className='bg-white text-gray-800 flex flex-col justify-between my-2 rounded-lg p-4 2xl:p-6' key={el._id} >
+                        <div className='bg-white text-gray-800 w-full flex flex-col justify-between my-2 rounded-lg p-4 2xl:p-6' key={el._id} >
                             {(i===3 && !items.showAll) ?
                             <>
                             <p className='text-5xl 2xl:text-6xl text-center' >+3</p>
@@ -33,10 +33,10 @@ export default function SearchBox({db}:{db:Place[]}){
                             <p className='font-bold 2xl:text-2xl' >{el.title}</p>
                             <p className='2xl:my-2 my-1 2xl:text-xl' >{el.description}</p>
                             <p className='my-1 font-light text-purple-700 2xl:my-2 2xl:text-xl' >{el.address}</p>
-                            {show[el._id] ?
+                            <button onClick={()=>handleMap(el._id)} className={` flex justify-center items-center rounded-lg py-2 ${show[el._id]?" bg-white text-purple-500 border-purple-500 border-2 mb-3 ":" bg-purple-500 text-white"} cursor-pointer transition-all duration-300 hover:shadow-lg ease-out hover:opacity-90 `} >{show[el._id]?"Ocultar mapa":"Ver ubicación"}</button>
+                            {show[el._id] &&
                                 <MapPlace id={el._id} lng={el.location.lng} lat={el.location.lat} />
-                            :
-                            <button onClick={()=>handleMap(el._id)} className='bg-purple-500 text-white flex justify-center items-center py-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg hover:opacity-90' >Ver ubicación</button>
+                            
                             }
                             </>
                             }
