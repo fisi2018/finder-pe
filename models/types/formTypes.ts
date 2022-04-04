@@ -9,10 +9,17 @@ export type FormTypeCreateCard={
         lat:number
     }
 }
+export type RegisterFormType={
+    name:string,
+    email:string,
+    password:string,
+    confirm:string
+}
 export type FormLogin={
     email:string,
     password:string
 }
+export type Form=RegisterFormType | FormLogin | FormTypeCreateCard
 export type ErrorCreateCard={
     title:string,
     description:string,

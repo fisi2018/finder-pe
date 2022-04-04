@@ -15,17 +15,17 @@ export default function Login(){
                     <BiCurrentLocation/>
                 </span>
                 </article>
-                <article className="my-4 flex " >
-                    <span className="flex 2xl:text-3xl  text-2xl mr-2 text-gray-400 items-end justify-center" >
+                <article className="my-4 flex flex-row-reverse" >
+                    <input className=" 2xl:text-xl peer bg-transparent border-b-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " placeholder="Correo" type="email" />
+                    <span className="flex 2xl:text-3xl peer-focus:text-white transition-all duration-300 ease-out  text-2xl mr-2 text-gray-400 items-end justify-center" >
                         <MdEmail/>
                     </span>
-                    <input className=" 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300  outline-0 border-gray-400 flex-1 " placeholder="Correo" type="email" />
                 </article>
-                <article className="my-4 flex " >
-                    <span className="flex 2xl:text-3xl justify-center items-end text-gray-400 text-2xl mr-2 " >
+                <article className="my-4 flex flex-row-reverse" >
+                    <input className=" 2xl:text-xl peer bg-transparent border-b-2 focus:border-white transition-all duration-300 outline-0 border-gray-400 flex-1" placeholder="Contraseña" type="password" />
+                    <span className="flex 2xl:text-3xl justify-center peer-focus:text-white transition-all duration-300 ease-out items-end text-gray-400 text-2xl mr-2 " >
                         <MdPassword/>
                     </span>
-                    <input className=" 2xl:text-xl bg-transparent border-b-2 focus:border-white transition-all duration-300 outline-0 border-gray-400 flex-1" placeholder="Contraseña" type="password" />
                 </article>
                 <button className="bg-purple-700 transition-all duration-300 hover:bg-purple-600 mt-2 2xl:text-xl text-white py-2" type="submit" >Iniciar sesión</button>
                 <Link href="/register">

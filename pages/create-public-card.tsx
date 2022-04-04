@@ -11,6 +11,7 @@ import { createPlace } from "../utils/fetch";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/common/Loader";
 import { validateFormCreatePlace } from "../utils/validations";
+import { HookCreateCard } from "../models/types/hooksTypes";
 const formInit:FormTypeCreateCard ={
     title:"",
     description:"",
@@ -21,7 +22,7 @@ const formInit:FormTypeCreateCard ={
     }
 }
 export default function PublicCard():JSX.Element{
-    const {handleChange,setForm,form}=useForm(formInit);
+    const {handleChange,setForm,form}=useForm(formInit) as HookCreateCard ;
     const [loading,setLoading]=useState<boolean>(false);
     const handleSubmit:HandlerSubmit=async(e)=>{
         e.preventDefault();

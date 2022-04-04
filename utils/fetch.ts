@@ -1,6 +1,6 @@
 import axios from "axios"
 import { API_URL } from "../consts/config"
-import { FormTypeCreateCard } from "../models/types/formTypes";
+import { FormTypeCreateCard, RegisterFormType } from "../models/types/formTypes";
 
 export const fetchPlaces=async()=>{
     try{
@@ -15,7 +15,7 @@ export const fetchPlaces=async()=>{
         }
     }
 }
-export const createPlace=async(form:FormTypeCreateCard)=>{
+export const createPlace=async(form : FormTypeCreateCard)=>{
     try{
         const response=await axios.post(`${API_URL}/place/createPlace`,form);
         const data=await response.data;
@@ -25,6 +25,19 @@ export const createPlace=async(form:FormTypeCreateCard)=>{
         return{
             error:true,
             message:"Ha ocurrido un error al publicar esta ubicación"
+        }
+    }
+}
+export const registerUser=async(form:RegisterFormType)=>{
+    try{
+        const response=await axios.post(`${API_URL}`,form);
+        const data=await response.data;
+        if(data.error)return{error:data.error,message:data.message};
+        return data;
+    }catch(err){
+        return{
+            error:err,
+            message:"Ha ocurrido un error al registrar un usuario"
         }
     }
 }
