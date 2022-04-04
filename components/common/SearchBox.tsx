@@ -1,19 +1,22 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import { Toaster } from 'react-hot-toast';
 import { BsSearch } from 'react-icons/bs';
-import { Place } from '../../types/place';
+import { Place } from '../../models/interfaces/place';
 import { useSearch } from '../hooks/useSearch';
 import MapPlace from './MapPlace';
 export default function SearchBox({db}:{db:Place[]}){
     const {handleChange,handleSubmit,items,searchValue}=useSearch(db);
     const [show,setShow]=useState<{}>({});
+    
     const handleMap=(id:string)=>{
         show[id]?setShow({...show,[id]:false}):setShow({...show,[id]:true});
     }
     return(
        <form  onSubmit={handleSubmit} className="my-4 w-full  flex flex-col items-center   " >
+           <Toaster/>
                 <article className="relative sm:w-80 w-full lg:w-96 xl:w-[28rem] 2xl:w-[60rem] " >
-                    <input value={searchValue} onChange={handleChange} className=" w-full 2xl:text-2xl rounded-3xl 2xl:rounded-full 2xl:p-8  p-4 z-0 text-gray-800"  type="search" placeholder="Ej: Vidrieria San Carlos" />
-                    <span className="flex text-2xl 2xl:text-4xl top-4 right-4 2xl:top-7 2xl:right-6 bg-white text-gray-700 absolute justify-center items-center" >
+                    <input value={searchValue} onChange={handleChange} className=" w-full 2xl:text-2xl rounded-3xl 2xl:rounded-full 2xl:p-6  p-4 z-0 text-gray-800"  type="search" placeholder="Ej: Vidrieria San Carlos" />
+                    <span className="flex text-2xl 2xl:text-4xl top-4 right-4 2xl:top-5 2xl:right-6 bg-white text-gray-700 absolute justify-center items-center" >
                         <BsSearch />
                     </span>
                 </article>

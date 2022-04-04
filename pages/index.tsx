@@ -6,7 +6,7 @@ import Link from "next/link";
 import SearchBox from "../components/common/SearchBox";
 import { GetStaticProps } from "next";
 import { fetchPlaces } from "../utils/fetch";
-import { Place } from "../types/place";
+import { Place } from "../models/interfaces/place";
 type HomeProps={
     db:Place[],
     message:string

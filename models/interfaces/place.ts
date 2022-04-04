@@ -1,4 +1,4 @@
-export type Place={
+export interface Place{
     _id:string,
     title:string,
     description:string,

@@ -1,6 +1,7 @@
 import {useState,useEffect,ChangeEvent,FormEvent} from "react";
 import { changeTildeFormat } from "../../utils";
-import { Place } from "../../types/place";
+import { Place } from "../../models/interfaces/place";
+import toast from "react-hot-toast";
 export const useSearch=(db:Place[])=>{
     const [searchValue,setSearchValue]=useState<string>("");
     const [items,setItems]=useState<{list:Place[],showAll:boolean}>({
@@ -49,7 +50,7 @@ export const useSearch=(db:Place[])=>{
             });
             setSearchValue("");
         }else{
-            console.log("Debe haber al menos 3 caracteres");
+            toast.error("La búsqueda debe contener al menos 3 caracteres");
         }
     
     }

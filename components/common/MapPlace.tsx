@@ -1,10 +1,10 @@
 import mapboxgl, { Map } from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useEffect, useRef } from "react"
+import {useEffect} from "react";
 import { ACCESS_TOKEN_MAPBOX } from "../../consts/config";
 mapboxgl.accessToken=ACCESS_TOKEN_MAPBOX;
 export default function MapPlace({lng,lat,id}:{lng:number,lat:number,id:string}){
-    console.log("id ",id);
+    
     useEffect(()=>{
         const map:Map = new mapboxgl.Map({
         container: id , 
@@ -25,7 +25,6 @@ export default function MapPlace({lng,lat,id}:{lng:number,lat:number,id:string})
                 color: "#A855F7"
             }).setLngLat([lng,lat])
             .addTo(map);
-            console.log("marker ",marker);
         return ()=> map.remove();
     },[]);
     return(

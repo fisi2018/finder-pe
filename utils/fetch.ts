@@ -1,6 +1,6 @@
 import axios from "axios"
 import { API_URL } from "../consts/config"
-import { Place } from "../types/place";
+import { FormTypeCreateCard } from "../models/types/formTypes";
 
 export const fetchPlaces=async()=>{
     try{
@@ -15,7 +15,7 @@ export const fetchPlaces=async()=>{
         }
     }
 }
-export const createPlace=async(form:Place)=>{
+export const createPlace=async(form:FormTypeCreateCard)=>{
     try{
         const response=await axios.post(`${API_URL}/place/createPlace`,form);
         const data=await response.data;

@@ -1,3 +1,4 @@
+import { MapMouseEvent } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useEffect } from 'react';
 import { useMap } from '../hooks/useMap';
@@ -10,7 +11,7 @@ export default function MapBox({setForm,form}):JSX.Element{
                     lng:markers._lngLat.lng,
                     lat:markers._lngLat.lat
                 }})
-                maps.once("click",(e)=>handlerMarker(e,maps));
+                maps.once("click",(e:MapMouseEvent)=>handlerMarker(e,maps));
             } 
         },[markers])
         

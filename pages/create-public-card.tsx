@@ -1,17 +1,17 @@
 import Layout from "../components/layout";
 import { BiCurrentLocation } from "react-icons/bi"
 import { ReactElement, useState} from "react";
-import { MdDescription, MdEmail, MdLocationOn, MdPassword, MdTitle } from "react-icons/md";
+import { MdDescription, MdLocationOn, MdTitle } from "react-icons/md";
 import Link from "next/link";
-import { FormTypeCreateCard, HandlerSubmit } from "../types/formTypes";
+import { FormTypeCreateCard, HandlerSubmit } from "../models/types/formTypes";
 import { useForm } from "../components/hooks/useForm";
 import { FaAddressBook } from "react-icons/fa";
 import MapBox from "../components/common/MapBox";
 import { createPlace } from "../utils/fetch";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/common/Loader";
+import { validateFormCreatePlace } from "../utils/validations";
 const formInit:FormTypeCreateCard ={
-    _id:"",
     title:"",
     description:"",
     address:"",
@@ -25,11 +25,18 @@ export default function PublicCard():JSX.Element{
     const [loading,setLoading]=useState<boolean>(false);
     const handleSubmit:HandlerSubmit=async(e)=>{
         e.preventDefault();
-        setLoading(true);
-        const result=await createPlace(form);
-        result.error?toast.error(result.message):toast.success(result.message);
-        setForm(formInit);
-        setLoading(false);
+        const {title,description,address}=validateFormCreatePlace(form);
+        if( title || description || address ){
+            title && toast.error(title);
+            description && toast.error(description);
+            address && toast.error(address);
+        }else{
+            setLoading(true);
+            const result=await createPlace(form);
+            result.error?toast.error(result.message):toast.success(result.message);
+            setForm(formInit);
+            setLoading(false);
+        }
     }
     return(
         <section className="min-h-screen p-6 flex  justify-center items-center bg-gradient-to-br from-purple-900 to-purple-500" >

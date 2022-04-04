@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FormTypeCreateCard, HandlerChange } from "../../types/formTypes";
+import { FormTypeCreateCard, HandlerChange } from "../../models/types/formTypes";
 
 export const useForm=(init:FormTypeCreateCard)=>{
     const [form,setForm]=useState(init);
