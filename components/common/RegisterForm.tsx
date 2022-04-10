@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {  Dispatch, SetStateAction, useState } from "react";
+import {  Dispatch, ReactElement, SetStateAction, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import {BiCurrentLocation} from "react-icons/bi";
 import { MdEmail, MdVisibility, MdVisibilityOff } from "react-icons/md";
@@ -15,7 +15,7 @@ const formInit:RegisterFormType={
 type Props={
     setVerify:Dispatch<SetStateAction<boolean>>
 }
-export default function RegisterForm({setVerify}:Props){
+export default function RegisterForm({setVerify}:Props):ReactElement{
     const [visible,setVisible]=useState<boolean>(false);
     const {handleChange,form}=useForm(formInit) as HookRegisterForm ;
     const togglePassword:()=>void=()=>visible?setVisible(false):setVisible(true);

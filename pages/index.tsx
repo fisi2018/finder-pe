@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import Layout from "../components/layout";
-//import {BsSearch} from "react-icons/bs";
 import {IoIosArrowDown} from "react-icons/io";
 import Link from "next/link";
 import SearchBox from "../components/common/SearchBox";
@@ -11,7 +10,7 @@ type HomeProps={
     db:Place[],
     message:string
 }
-export default function Home({db,message}:HomeProps){
+export default function Home({db,message}:HomeProps):ReactElement{
     return(
         <section className="p-4 flex justify-center flex-col text-white items-center min-h-screen bg-gradient-to-br from-purple-900 to-purple-400  " >
             <p className="uppercase tracking-widest 2xl:text-xl " >Uso gratuito</p>
@@ -35,7 +34,7 @@ export default function Home({db,message}:HomeProps){
         </section>
     )
 }
-Home.getLayout=function getLayout(page:ReactElement){
+Home.getLayout=function getLayout(page:ReactElement):ReactElement{
     return(
         <Layout>
             {page}

@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import {RiMenu5Fill} from "react-icons/ri";
 import {AiOutlineArrowUp} from "react-icons/ai";
 import {BiCurrentLocation} from "react-icons/bi";
 import { NextRouter, useRouter } from "next/router";
-export default function Header(){
+export default function Header():ReactElement{
     const [show,setShow]=useState<boolean>(false);
     const {pathname}:NextRouter=useRouter();
     return(

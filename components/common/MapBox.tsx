@@ -1,8 +1,13 @@
 import { MapMouseEvent } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useEffect } from 'react';
+import { Dispatch, ReactElement, SetStateAction, useEffect } from 'react';
+import { FormTypeCreateCard } from '../../models/types/formTypes';
 import { useMap } from '../hooks/useMap';
-export default function MapBox({setForm,form}):JSX.Element{
+type ComponentProps={
+    setForm:Dispatch<SetStateAction<FormTypeCreateCard>>,
+    form:FormTypeCreateCard
+}
+export default function MapBox({setForm,form}:ComponentProps):ReactElement{
     const {markers,maps,handlerMarker}=useMap();
        
        useEffect(()=>{

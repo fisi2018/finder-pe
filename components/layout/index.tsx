@@ -1,7 +1,10 @@
+import { ReactElement } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
-
-export default function Layout({children}:{children:JSX.Element}):JSX.Element{
+type PropsComponent={
+    children:ReactElement
+}
+export default function Layout({children}:PropsComponent):ReactElement{
     return(
         <section>
             <Header/>

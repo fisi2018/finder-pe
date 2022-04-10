@@ -30,7 +30,7 @@ export const useMap=()=>{
             if(markers){
                 markers.remove();
             }
-            const marker = new mapboxgl.Marker({
+            const marker:Marker = new mapboxgl.Marker({
                 color: "#A855F7"
                 
             }).setLngLat([e.lngLat.lng,e.lngLat.lat])

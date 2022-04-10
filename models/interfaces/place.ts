@@ -8,3 +8,7 @@ export interface Place{
         lat:number
     }
 }
+export interface ErrorFetch{
+    error:string,
+    message:string
+}

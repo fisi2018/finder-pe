@@ -3,7 +3,7 @@ import {ReactElement} from "react";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { BiAbacus } from "react-icons/bi";
 import { BsCoin } from "react-icons/bs";
-export default function About(){
+export default function About():ReactElement{
     return(
         <section className="p-6 text-white bg-gradient-to-br from-purple-900 to-sky-300 min-h-screen items-center flex flex-col " >
             <h1 className=" text-3xl text-center" >¿Qué es <b className="font-bold text-purple-200" >Finder</b>?</h1>
@@ -31,7 +31,7 @@ export default function About(){
         </section>
     )
 }
-About.getLayout=function getLayout(page:ReactElement ){
+About.getLayout=function getLayout(page:ReactElement):ReactElement{
     return(
         <Layout>
             {page}

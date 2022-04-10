@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
+import { ReactElement } from "react";
 import { BiCurrentLocation, BiKey } from "react-icons/bi";
 import { HandlerSubmit } from "../../models/types/formTypes";
 
-export default function VerifyForm(){
+export default function VerifyForm():ReactElement{
     const {push}=useRouter();
     const handleSubmit:HandlerSubmit=(e)=>{
         e.preventDefault();

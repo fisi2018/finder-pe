@@ -4,7 +4,7 @@ import { BsFillShareFill } from "react-icons/bs";
 import {MdPlace} from "react-icons/md";
 import {FaUserAlt, FaUsers} from "react-icons/fa";
 import { RiGitRepositoryPrivateFill } from "react-icons/ri";
-export default function Services(){
+export default function Services():ReactElement{
     return(
         <section className="p-6 min-h-screen flex flex-col items-center text-white bg-gradient-to-br from-gray-800 to-purple-500 " >
             <h1 className="text-3xl font-semibold mb-6 2xl:text-5xl " >Servicios en Finder</h1>
@@ -44,7 +44,7 @@ export default function Services(){
         </section>
     )
 }
-Services.getLayout=function getLayout(page:ReactElement){
+Services.getLayout=function getLayout(page:ReactElement):ReactElement{
     return(
         <Layout>
             {page}

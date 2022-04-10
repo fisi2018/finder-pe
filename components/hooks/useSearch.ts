@@ -2,6 +2,7 @@ import {useState,useEffect,ChangeEvent,FormEvent} from "react";
 import { changeTildeFormat } from "../../utils";
 import { Place } from "../../models/interfaces/place";
 import toast from "react-hot-toast";
+import { HandlerChange, HandlerSubmit } from "../../models/types/formTypes";
 export const useSearch=(db:Place[])=>{
     const [searchValue,setSearchValue]=useState<string>("");
     const [items,setItems]=useState<{list:Place[],showAll:boolean}>({
@@ -28,12 +29,12 @@ export const useSearch=(db:Place[])=>{
             });
         }
     },[searchValue]);
-    const handleChange=(e:ChangeEvent<HTMLInputElement>)=>{
+    const handleChange:HandlerChange=(e)=>{
         const {value}=e.target;
         (value.length===1 && items.showAll) && setItems({...items,showAll:false});
         setSearchValue(value.toLowerCase());
     }
-    const handleSubmit=(e:FormEvent<HTMLFormElement>)=>{
+    const handleSubmit:HandlerSubmit=(e)=>{
         e.preventDefault();
     if(searchValue!=="" && searchValue.length>=3 ){
             let array:Place[]=db.filter((el:Place)=>{

@@ -1,9 +1,14 @@
 import mapboxgl, { Map } from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import {useEffect} from "react";
+import {ReactElement, useEffect} from "react";
 import { ACCESS_TOKEN_MAPBOX } from "../../consts/config";
 mapboxgl.accessToken=ACCESS_TOKEN_MAPBOX;
-export default function MapPlace({lng,lat,id}:{lng:number,lat:number,id:string}){
+type PropsComponent={
+    lng:number,
+    lat:number,
+    id:string
+}
+export default function MapPlace({lng,lat,id}:PropsComponent):ReactElement{
     
     useEffect(()=>{
         const map:Map = new mapboxgl.Map({
